@@ -21,14 +21,7 @@ texts = [
     "Type: Laptop, OS: Mac OS, GPU: NVIDIA, CPU: AMD, RAM: 16GB, SSD: 1TB",
 ]
 
-# OPENAI API KEY
-main_dir = Path(__file__).parent
-file_path = main_dir / 'API_KEY.txt'
-
-os.environ['OPENAI_API_KEY'] = open(file_path, 'r').read().strip()
-
-
-
+# Model: HuggingFace - all-MiniLM-L6-v2 
 # Generating Embeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 embeddings_list = []
@@ -38,3 +31,4 @@ for text in texts:
 
 print(f"Embedding length: {len(embeddings_list[0])}")
 print("Embeddings Generated Successfully.")
+
